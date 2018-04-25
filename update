@@ -6,6 +6,9 @@ if [ ! "$1" ]; then
 	exit 1
 fi
 
+# load environment
+source environment
+
 # determine old version
 cd `dirname $0`/linux
 TEMPFILE=`tempfile`
