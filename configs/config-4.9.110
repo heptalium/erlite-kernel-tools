@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/mips 4.9.70 Kernel Configuration
+# Linux/mips 4.9.110 Kernel Configuration
 #
 CONFIG_MIPS=y
 
@@ -706,7 +706,9 @@ CONFIG_IP6_NF_TARGET_REJECT=m
 # CONFIG_BRIDGE is not set
 CONFIG_HAVE_NET_DSA=y
 # CONFIG_NET_DSA is not set
-# CONFIG_VLAN_8021Q is not set
+CONFIG_VLAN_8021Q=y
+# CONFIG_VLAN_8021Q_GVRP is not set
+# CONFIG_VLAN_8021Q_MVRP is not set
 # CONFIG_DECNET is not set
 # CONFIG_LLC2 is not set
 # CONFIG_IPX is not set
