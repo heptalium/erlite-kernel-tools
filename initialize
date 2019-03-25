@@ -1,0 +1,33 @@
+#!/bin/bash
+# kernel/initialize <kernel version>"
+
+if [ ! "$1" ]; then
+	echo "kernel/initialize <kernel version>"
+	exit 1
+fi
+
+# change to script directory 
+cd `dirname $0`
+
+# determine kernel version
+VERSION=$(echo "$1" | cut -d . -f 1)
+PATCHLEVEL=$(echo "$1" | cut -d . -f 2)
+SUBLEVEL=$(echo "$1" | cut -d . -f 3)
+
+# determine file name
+FILE="linux-$VERSION.$PATCHLEVEL.$SUBLEVEL.tar.xz"
+
+# download kernel source
+wget "https://www.kernel.org/pub/linux/kernel/v$VERSION.x/$FILE"
+
+# unpack kernel source
+tar xf "$FILE"
+
+# move kernel source
+mv -v "linux-$VERSION.$PATCHLEVEL.$SUBLEVEL" "linux"
+
+# copy config
+cp -v "configs/config-$VERSION.$PATCHLEVEL" "linux/.config"
+
+# cleanup
+rm -f "$FILE"

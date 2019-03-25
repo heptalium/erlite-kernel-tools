@@ -1,0 +1,11 @@
+#!/bin/bash
+# kernel/build
+
+# load environment
+source environment
+
+JOBS=$(awk '/processor/{n++} END {print n}' /proc/cpuinfo)
+
+# build kernel
+make -j "$JOBS" && make modules_install
+
