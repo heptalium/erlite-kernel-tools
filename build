@@ -1,11 +1,17 @@
 #!/bin/bash
 # kernel/build
 
+set -e
+
+cd $(dirname $0)/linux
+
 # load environment
-source environment
+source ../environment
 
 JOBS=$(awk '/processor/{n++} END {print n}' /proc/cpuinfo)
 
 # build kernel
-make -j "$JOBS" && make modules_install
-
+make -j "$JOBS"
+make modules_install
+rm "$INSTALL_MOD_PATH"/lib/modules/*/source "$INSTALL_MOD_PATH"/lib/modules/*/build
+cp -v vmlinux ..
