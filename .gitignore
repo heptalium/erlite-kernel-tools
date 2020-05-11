@@ -1,4 +1,4 @@
-linux/
-modules/
-patches/
-kernel-*.tgz
+/linux/
+/modules/
+/patches/
+/kernel-*.tgz
