@@ -25,4 +25,4 @@ cp -v vmlinux "${INSTALL_MOD_PATH}/boot"
 
 # create install archive
 cd "$INSTALL_MOD_PATH"
-fakeroot tar czvf "../kernel-${KERNELRELEASE}-${ARCH}.tgz" --sort=name 'boot' "lib/modules/${KERNELRELEASE}"
+fakeroot tar czvf "../kernel-${KERNELRELEASE}-${ARCH}.tgz" --sort=name 'boot/vmlinux' "lib/modules/${KERNELRELEASE}"
