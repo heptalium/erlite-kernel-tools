@@ -3,15 +3,26 @@
 
 set -e
 
+# change to kernel source tree
 cd $(dirname $0)/linux
 
 # load environment
 source ../environment
 
+# calculate number of parallel jobs
 JOBS=$(awk '/^processor/ {n++} END {print n}' /proc/cpuinfo)
+
+# clean install path
+rm -rfv "$INSTALL_MOD_PATH"
 
 # build kernel
 make -j "$JOBS"
 make modules_install
-rm "$INSTALL_MOD_PATH"/lib/modules/*/source "$INSTALL_MOD_PATH"/lib/modules/*/build
-cp -v vmlinux ..
+KERNELRELEASE=$(make -s kernelrelease)
+rm "${INSTALL_MOD_PATH}/lib/modules/${KERNELRELEASE}/source" "${INSTALL_MOD_PATH}/lib/modules/${KERNELRELEASE}/build"
+mkdir -pv "${INSTALL_MOD_PATH}/boot"
+cp -v vmlinux "${INSTALL_MOD_PATH}/boot"
+
+# create install archive
+cd "$INSTALL_MOD_PATH"
+fakeroot tar czvf "../kernel-${KERNELRELEASE}-${ARCH}.tgz" --sort=name 'boot' "lib/modules/${KERNELRELEASE}"
