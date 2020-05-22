@@ -35,7 +35,7 @@ done
 
 # save config
 cd ../linux
-mv -v .config ../.config
+mv -v .config .config.save
 
 # clean source
 make distclean
@@ -50,4 +50,4 @@ for i in `seq "$SUBLEVEL" "$(($1 - 1))"`; do
 done
 
 # restore config
-mv -v ../.config .config
+mv -v .config.save .config
