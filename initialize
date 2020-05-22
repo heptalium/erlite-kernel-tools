@@ -11,6 +11,9 @@ set -e
 # change to script directory 
 cd `dirname $0`
 
+# remove previously existing linux directory
+rm -rf linux
+
 # determine kernel version
 VERSION=$(echo "$1" | cut -d . -f 1)
 PATCHLEVEL=$(echo "$1" | cut -d . -f 2)
