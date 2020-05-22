@@ -6,6 +6,8 @@ if [ ! "$1" ]; then
 	exit 1
 fi
 
+set -e
+
 # change to script directory 
 cd `dirname $0`
 
