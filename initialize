@@ -1,5 +1,5 @@
 #!/bin/bash
-# kernel/initialize <kernel version>"
+# kernel/initialize <kernel version>
 
 if [ ! "$1" ]; then
 	echo "kernel/initialize <kernel version>"
