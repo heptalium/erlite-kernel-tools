@@ -1,4 +1,3 @@
-#!/bin/bash
 export ARCH='mips'
 export CROSS_COMPILE='/usr/bin/mips64-linux-gnuabi64-'
 export INSTALL_MOD_PATH='../modules'
