@@ -2,7 +2,7 @@
 # kernel/initialize <kernel version>
 
 if [ ! "$1" ]; then
-	echo "kernel/initialize <kernel version>"
+	echo "kernel/initialize <kernel version>" 1>&2
 	exit 1
 fi
 
