@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/mips 5.4.135 Kernel Configuration
+# Linux/mips 5.4.225 Kernel Configuration
 #
 
 #
@@ -143,6 +143,7 @@ CONFIG_KALLSYMS_ALL=y
 CONFIG_KALLSYMS_BASE_RELATIVE=y
 CONFIG_BPF_SYSCALL=y
 # CONFIG_BPF_JIT_ALWAYS_ON is not set
+# CONFIG_BPF_UNPRIV_DEFAULT_OFF is not set
 # CONFIG_USERFAULTFD is not set
 CONFIG_RSEQ=y
 # CONFIG_DEBUG_RSEQ is not set
@@ -435,7 +436,6 @@ CONFIG_CLONE_BACKWARDS=y
 CONFIG_64BIT_TIME=y
 CONFIG_COMPAT_32BIT_TIME=y
 CONFIG_ARCH_HAS_PHYS_TO_DMA=y
-# CONFIG_REFCOUNT_FULL is not set
 CONFIG_HAVE_ARCH_COMPILER_H=y
 
 #
@@ -1223,7 +1223,6 @@ CONFIG_FIXED_PHY=y
 # CONFIG_WAN is not set
 # CONFIG_NET_FAILOVER is not set
 # CONFIG_ISDN is not set
-# CONFIG_NVM is not set
 
 #
 # Input device support
@@ -1304,9 +1303,8 @@ CONFIG_HW_RANDOM_OCTEON=y
 # CONFIG_RAW_DRIVER is not set
 # CONFIG_TCG_TPM is not set
 # CONFIG_XILLYBUS is not set
-# end of Character devices
-
 # CONFIG_RANDOM_TRUST_BOOTLOADER is not set
+# end of Character devices
 
 #
 # I2C support
